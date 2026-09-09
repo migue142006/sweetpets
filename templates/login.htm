@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - DataStock</title>
+</head>
+<body>
+    <h2>Iniciar Sesión en DataStock</h2>
+    
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul style="color:red;">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    
+    <form method="POST">
+        <label>Usuario:</label><br>
+        <input type="text" name="username" required><br><br>
+        
+        <label>Contraseña:</label><br>
+        <input type="password" name="password" required><br><br>
+        
+        <input type="submit" value="Ingresar">
+    </form>
+</body>
+</html>
