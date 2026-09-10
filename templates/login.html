@@ -1,29 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Login - DataStock</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SweetPets</title>
+    <style>
+        /* Estilos generales para centrar y poner un fondo bonito */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8; /* Color de fondo suave */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        /* Estilos de la tarjeta blanca central */
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 350px;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 25px;
+        }
+        /* Estilos de los campos de texto */
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        /* Estilos base para los botones */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 5px 0;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+            transition: background-color 0.3s;
+        }
+        /* Botón de iniciar sesión */
+        .btn-login {
+            background-color: #28a745; /* Verde */
+            color: white;
+        }
+        .btn-login:hover {
+            background-color: #218838;
+        }
+        /* Botón de registro */
+        .btn-register {
+            background-color: #007bff; /* Azul */
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+        .btn-register:hover {
+            background-color: #0056b3;
+        }
+        /* Mensajes de error */
+        .error-messages {
+            color: #dc3545;
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Iniciar Sesión en DataStock</h2>
-    
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul style="color:red;">
-        {% for message in messages %}
-          <li>{{ message }}</li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
-    
-    <form method="POST">
-        <label>Usuario:</label><br>
-        <input type="text" name="username" required><br><br>
+
+    <div class="login-container">
+        <h2>🐾 SweetPets</h2>
         
-        <label>Contraseña:</label><br>
-        <input type="password" name="password" required><br><br>
+        <!-- Mostrar errores si la contraseña es incorrecta -->
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="error-messages">
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
         
-        <input type="submit" value="Ingresar">
-    </form>
+        <!-- Formulario de Ingreso -->
+        <form method="POST" action="/">
+            <input type="text" name="username" placeholder="Usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            
+            <button type="submit" class="btn btn-login">Iniciar Sesión</button>
+        </form>
+        
+        <!-- Botón que lleva a la página de registro -->
+        <a href="/registro" class="btn btn-register">Registrarse</a>
+    </div>
+
 </body>
 </html>
