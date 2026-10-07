@@ -1,0 +1,1 @@
+{% extends 'clinic/base.html' %}{% block content %}<section class="login"><h1>Bienvenido a SweetPets</h1><p>Ingresa con tu usuario y contraseña. Después de tres intentos fallidos, la cuenta se bloquea durante 15 minutos.</p><form method="post">{% csrf_token %}{{form.as_p}}<button>Iniciar sesión</button></form></section>{% endblock %}

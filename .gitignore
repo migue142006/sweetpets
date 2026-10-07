@@ -1,0 +1,30 @@
+# Credenciales y entornos
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+# Python y pruebas
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+coverage.json
+junit.xml
+# Datos privados y archivos generados
+media/
+staticfiles/
+*.sqlite3
+*.log
+backups/
+# IDE
+.vs/
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+# Sistema
+.DS_Store
+Thumbs.db
